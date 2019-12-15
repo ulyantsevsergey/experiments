@@ -1,0 +1,1 @@
+goreporter -p "C:\Users\OTKP-UliyantsevSV\go\src\awesomeProject"

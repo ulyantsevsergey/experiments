@@ -1,0 +1,21 @@
+pools:
+  - id: HTTP pool                    # pool name (for your choice)
+    gun:
+      type: http                     # gun type
+      target: dt-kplustest1.kc.kplus:3000       # gun target
+    ammo:
+      type: http/json
+      file: ./ammo1.json
+    result:
+      type: phout                    # report format (phout is compatible with Yandex.Tank)
+      destination: ./phout.log       # report file name
+    rps:                             # shooting schedule
+      type: line                     # linear growth
+      from: 1                        # from 1 response per second
+      to: 1                          # to 5 responses per second
+      duration: 5s                  # for 60 seconds
+
+    startup:                         # instances startup schedule
+      type: once                     # start 10 instances
+      times: 1
+
